@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import TodoForm from '../components/TodoForm';
-import TodoList from '../components/TodoList';
+import TodoForm from '../src/components/TodoForm';
+import TodoList from '../src/components/TodoList';
 import Head from 'next/head';
 
 const Home = ({ initialTodos }) => {
@@ -54,8 +54,8 @@ const Home = ({ initialTodos }) => {
             <Head>
                 <title>Todo App</title>
                 <meta name="description" content="A simple todo app built with Next.js" />
-                <link rel="icon" href="/favicon.ico" />
-                <link rel="manifest" href="/manifest.json" />
+                <link rel="icon" href="/public/favicon.ico" />
+                <link rel="manifest" href="/public/manifest.json" />
             </Head>
             <h1>What&apos;s the Plan for Today?</h1>
             <TodoForm onSubmit={addTodo} />
