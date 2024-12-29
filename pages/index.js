@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import TodoForm from '../src/components/TodoForm';
-import TodoList from '../src/components/TodoList';
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
+
+// Dynamically import components
+const TodoForm = dynamic(() => import('../src/components/TodoForm'));
+const TodoList = dynamic(() => import('../src/components/TodoList'));
 
 const Home = ({ initialTodos }) => {
     const [todos, setTodos] = useState(initialTodos);
