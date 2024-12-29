@@ -9,16 +9,27 @@ const TodoList = dynamic(() => import('../src/components/TodoList'));
 const Home = ({ initialTodos }) => {
     const [todos, setTodos] = useState(initialTodos);
 
-    useEffect(() => {
-        const savedTodos = localStorage.getItem('todos');
-        if (savedTodos) {
-            setTodos(JSON.parse(savedTodos));
-        }
+    useEffect(() => { 
+        const loadTodos = async () => {
+            try {
+                const savedTodos = localStorage.getItem('todos');
+                if (savedTodos) {
+                    setTodos(JSON.parse(savedTodos));
+                }
+            } catch (error) {
+                console.error("Error loading todos from localStorage:", error);
+            }
+        };
+        loadTodos();
     }, []);
 
     useEffect(() => {
-        if (todos.length) {
-            localStorage.setItem('todos', JSON.stringify(todos));
+        try {
+            if (todos.length) {
+                localStorage.setItem('todos', JSON.stringify(todos));
+            }
+        } catch (error) {
+            console.error("Error saving todos to localStorage:", error);
         }
     }, [todos]);
 
