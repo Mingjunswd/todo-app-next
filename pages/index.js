@@ -57,7 +57,7 @@ const Home = ({ initialTodos }) => {
                 <link rel="icon" href="/favicon.ico" />
                 <link rel="manifest" href="/manifest.json" />
             </Head>
-            <h1>What's the Plan for Today?</h1>
+            <h1>What&apos;s the Plan for Today?</h1>
             <TodoForm onSubmit={addTodo} />
             <TodoList
                 todos={todos}
